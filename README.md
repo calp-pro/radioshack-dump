@@ -6,25 +6,25 @@ Static set of addresses (RadioShack Ethereum mainnet).<br>
 New pairs updates happen every hour at GitHub Action [update.yml](https://github.com/calp-pro/uniswap-v2-dump/actions/workflows/update.yml)<br>
 via [uniswap-v2-loader](https://github.com/calp-pro/uniswap-v2-loader)
 
-Data: `dump.csv` Kb+ 
+Data: `dump.csv` 11Kb+ 
 
 CSV schema: `id,pair,token0,token1`
 
 ## Example:
 ```
 ...
-
+8,0x4c55011e3b909e3e8ec3b381d184260bf2c472bf,0x45fdb1b92a649fb6a64ef1511d3ba5bf60044838,0x7a5d3a9dcd33cb8d527f7b5f96eb4fef43d55636
 ...
 ```
 where:
-- ``
+- `8`
   * pair/pool index at factory contract
-- ``
-  * / AMM [contract](https://etherscan.io/address/) address
-- ``
-  *  ERC-20 token [contract](https://etherscan.io/token/) address
-- ``
-  *  ERC-20 token [contract](https://etherscan.io/token/) address
+- `0x4c55011e3b909e3e8ec3b381d184260bf2c472bf`
+  * USDS/RADIO AMM [contract](https://etherscan.io/address/0x4c55011e3b909e3e8ec3b381d184260bf2c472bf) address
+- `0x45fdb1b92a649fb6a64ef1511d3ba5bf60044838`
+  * USDS ERC-20 token [contract](https://etherscan.io/token/0x45fdb1b92a649fb6a64ef1511d3ba5bf60044838) address
+- `0x7a5d3a9dcd33cb8d527f7b5f96eb4fef43d55636`
+  * RADIO ERC-20 token [contract](https://etherscan.io/token/0x7a5d3a9dcd33cb8d527f7b5f96eb4fef43d55636) address
 
 ## API
 Same implementation as other Uniswap v2 based protocols.<br>
@@ -34,5 +34,5 @@ Predefined `filename` with value `dump.csv`.
 ## Usage CLI/API:
 ```bash
 > node -e "require('radioshack-dump').load().then(pairs => console.log(pairs.length))"
-> 
+> 79
 ```

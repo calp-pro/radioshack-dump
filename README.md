@@ -3,18 +3,27 @@
 <br>
 
 Static set of addresses (RadioShack Ethereum mainnet).<br>
-New pairs updates happen every hour at GitHub Action [update.yml](https://github.com/calp-pro/uniswap-v2-dump/actions/workflows/update.yml)<br>
+New pairs updates happen every hour at GitHub Action [update.yml](https://github.com/calp-pro/radioshack-dump/actions/workflows/update.yml)<br>
 via [uniswap-v2-loader](https://github.com/calp-pro/uniswap-v2-loader)
 
-Data: `dump.csv` 11Kb+ 
+Data:
+- `dump_pairs.bin` 1.6 Kb+ 
+- `dump_tokens.bin` 1.3 Kb+
+- `dump_p2tt.bin` 474 b+
 
-CSV schema: `id,pair,token0,token1`
-
-## Example:
-```
-...
-8,0x4c55011e3b909e3e8ec3b381d184260bf2c472bf,0x45fdb1b92a649fb6a64ef1511d3ba5bf60044838,0x7a5d3a9dcd33cb8d527f7b5f96eb4fef43d55636
-...
+## Output format
+`load` and subscribe` methods return collection of pools/pairs.
+```js
+[
+    ...
+    {
+        id: 8,
+        pair: '0x4c55011e3b909e3e8ec3b381d184260bf2c472bf',
+        token0: '0x45fdb1b92a649fb6a64ef1511d3ba5bf60044838',
+        token1: '0x7a5d3a9dcd33cb8d527f7b5f96eb4fef43d55636'
+    },
+    ...
+]
 ```
 where:
 - `8`
@@ -29,7 +38,7 @@ where:
 ## API
 Same implementation as other Uniswap v2 based protocols.<br>
 Base API reference: [uniswap-v2-loader](https://github.com/calp-pro/uniswap-v2-loader?tab=readme-ov-file#api-reference).<br>
-Predefined `filename` with value `dump.csv`.
+Predefined `filename` with value `dump` & `csv: false`.
 
 ## Usage CLI/API:
 ```bash
